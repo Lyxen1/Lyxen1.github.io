@@ -1,11 +1,812 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lien Fenk – Online-Bewerbungsprofil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #1a2540;
+      --gold: #c9a84c;
+      --gold-light: #e8d49a;
+      --cream: #faf8f5;
+      --white: #ffffff;
+      --gray-100: #f4f4f6;
+      --gray-300: #d1d5db;
+      --gray-500: #6b7280;
+      --gray-700: #374151;
+      --text: #1a2540;
+      --shadow: 0 4px 24px rgba(26,37,64,0.10);
+      --radius: 10px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text); }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 64px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold); font-size: 1.25rem; font-weight: 700; letter-spacing: 0.04em;
+    }
+    .nav-links { display: flex; gap: 8px; }
+    .nav-links a {
+      color: var(--gray-300); text-decoration: none;
+      font-size: 0.875rem; font-weight: 500; letter-spacing: 0.04em;
+      padding: 8px 16px; border-radius: 6px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--gold); background: rgba(201,168,76,0.10);
+    }
+
+    /* SECTIONS */
+    section { min-height: 100vh; padding: 100px 0 60px; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+
+    /* ── HOME ── */
+    #home {
+      background: var(--navy);
+      display: flex; align-items: center;
+    }
+    .home-inner {
+      display: flex; align-items: center; gap: 64px;
+      padding: 60px 0;
+    }
+    .home-photo {
+      flex-shrink: 0;
+      width: 220px; height: 220px; border-radius: 50%;
+      border: 4px solid var(--gold);
+      background: linear-gradient(135deg, #2e3f6e, #3a517a);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .home-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .photo-placeholder {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: var(--gold-light); font-size: 0.8rem; text-align: center; padding: 16px;
+    }
+    .photo-placeholder svg { width: 56px; height: 56px; opacity: 0.6; }
+    .home-text { color: var(--white); }
+    .home-eyebrow {
+      font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); font-weight: 600; margin-bottom: 12px;
+    }
+    .home-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 700;
+      line-height: 1.1; margin-bottom: 16px;
+    }
+    .home-tagline {
+      font-size: 1rem; color: #a8b4cc; line-height: 1.7;
+      max-width: 480px; margin-bottom: 28px;
+    }
+    .home-divider {
+      width: 48px; height: 3px; background: var(--gold); border-radius: 2px; margin-bottom: 28px;
+    }
+    .home-meta { display: flex; gap: 24px; flex-wrap: wrap; }
+    .home-meta-item { display: flex; align-items: center; gap: 8px; color: #a8b4cc; font-size: 0.875rem; }
+    .home-meta-item svg { color: var(--gold); flex-shrink: 0; }
+    .btn {
+      display: inline-block; padding: 12px 28px; border-radius: 6px;
+      font-size: 0.875rem; font-weight: 600; letter-spacing: 0.04em; text-decoration: none;
+      cursor: pointer; border: none; transition: all 0.2s;
+    }
+    .btn-gold { background: var(--gold); color: var(--navy); }
+    .btn-gold:hover { background: var(--gold-light); }
+    .btn-outline { background: transparent; color: var(--gold); border: 2px solid var(--gold); margin-left: 12px; }
+    .btn-outline:hover { background: rgba(201,168,76,0.12); }
+
+    /* ── ABOUT / CV ── */
+    #about { background: var(--cream); }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700; color: var(--navy); margin-bottom: 8px;
+    }
+    .section-subtitle { color: var(--gray-500); font-size: 0.95rem; margin-bottom: 40px; }
+    .section-line { width: 48px; height: 3px; background: var(--gold); border-radius: 2px; margin-bottom: 12px; }
+
+    .cv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .cv-card {
+      background: var(--white); border-radius: var(--radius);
+      padding: 28px 28px 24px; box-shadow: var(--shadow);
+    }
+    .cv-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; font-weight: 700; color: var(--navy);
+      border-bottom: 2px solid var(--gold); padding-bottom: 10px; margin-bottom: 20px;
+      text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8rem;
+    }
+    .cv-entry { margin-bottom: 20px; }
+    .cv-entry:last-child { margin-bottom: 0; }
+    .cv-year { font-size: 0.75rem; color: var(--gold); font-weight: 600; letter-spacing: 0.06em; margin-bottom: 2px; }
+    .cv-role { font-weight: 600; font-size: 0.95rem; color: var(--navy); margin-bottom: 2px; }
+    .cv-org { font-size: 0.875rem; color: var(--gray-500); margin-bottom: 4px; }
+    .cv-desc { font-size: 0.85rem; color: var(--gray-700); line-height: 1.6; }
+    .cv-full { grid-column: 1 / -1; }
+
+    .personal-info-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px;
+    }
+    .info-chip {
+      background: var(--white); border-radius: var(--radius); padding: 16px 20px;
+      box-shadow: var(--shadow); display: flex; align-items: center; gap: 12px;
+    }
+    .info-chip-icon { color: var(--gold); flex-shrink: 0; }
+    .info-chip-label { font-size: 0.72rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.08em; }
+    .info-chip-value { font-size: 0.9rem; font-weight: 600; color: var(--navy); }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--gray-100); }
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .project-card {
+      background: var(--white); border-radius: var(--radius);
+      box-shadow: var(--shadow); overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .project-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(26,37,64,0.14); }
+    .project-tag-bar {
+      height: 6px; background: var(--navy);
+    }
+    .project-tag-bar.school { background: var(--gold); }
+    .project-tag-bar.private { background: var(--navy); }
+    .project-body { padding: 20px 20px 16px; }
+    .project-badge {
+      display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 3px 10px; border-radius: 20px; margin-bottom: 10px;
+    }
+    .badge-school { background: #fef3c7; color: #92400e; }
+    .badge-private { background: #dbeafe; color: #1e40af; }
+    .project-name { font-weight: 700; font-size: 0.95rem; color: var(--navy); margin-bottom: 6px; }
+    .project-desc { font-size: 0.83rem; color: var(--gray-500); line-height: 1.55; margin-bottom: 14px; }
+    .project-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; color: var(--gold); text-decoration: none;
+      border-bottom: 1px solid transparent; transition: border-color 0.2s;
+    }
+    .project-link:hover { border-color: var(--gold); }
+    .project-link-disabled { color: var(--gray-300); cursor: default; }
+
+    /* ── ICT SKILLS ── */
+    #skills { background: var(--cream); }
+    .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .skills-card {
+      background: var(--white); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow);
+    }
+    .skills-card-title {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px;
+    }
+    .skill-row { margin-bottom: 16px; }
+    .skill-label-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
+    .skill-name { font-size: 0.875rem; font-weight: 500; color: var(--navy); }
+    .skill-pct { font-size: 0.8rem; color: var(--gray-500); font-weight: 600; }
+    .skill-bar-bg { height: 7px; background: var(--gray-100); border-radius: 4px; }
+    .skill-bar-fill { height: 100%; background: linear-gradient(90deg, var(--gold), #e8c96a); border-radius: 4px; transition: width 1s ease; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-tag {
+      background: var(--gray-100); color: var(--navy); border-radius: 20px;
+      padding: 5px 14px; font-size: 0.8rem; font-weight: 500;
+      border: 1px solid var(--gray-300);
+    }
+    .skill-tag.known { background: #fef3c7; border-color: var(--gold-light); color: #92400e; }
+
+    /* ── DOCUMENTS ── */
+    #documents { background: var(--gray-100); }
+    .login-overlay {
+      background: var(--white); border-radius: var(--radius);
+      box-shadow: var(--shadow); max-width: 400px; margin: 0 auto; padding: 40px;
+      text-align: center;
+    }
+    .login-icon { color: var(--gold); margin-bottom: 16px; }
+    .login-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: 8px; }
+    .login-sub { color: var(--gray-500); font-size: 0.88rem; margin-bottom: 28px; }
+    .form-group { text-align: left; margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+    .form-group input {
+      width: 100%; padding: 10px 14px; border: 1.5px solid var(--gray-300); border-radius: 6px;
+      font-size: 0.9rem; font-family: 'Inter', sans-serif; color: var(--navy);
+      outline: none; transition: border-color 0.2s;
+    }
+    .form-group input:focus { border-color: var(--gold); }
+    .btn-full { width: 100%; padding: 12px; margin-top: 8px; }
+    .login-hint { font-size: 0.78rem; color: var(--gray-500); margin-top: 14px; }
+    .docs-area { display: none; }
+    .docs-area.visible { display: block; }
+    .docs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .doc-card {
+      background: var(--white); border-radius: var(--radius); padding: 22px 20px;
+      box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 10px;
+      align-items: flex-start; transition: transform 0.2s;
+    }
+    .doc-card:hover { transform: translateY(-3px); }
+    .doc-icon { color: var(--gold); }
+    .doc-name { font-weight: 700; font-size: 0.9rem; color: var(--navy); }
+    .doc-desc { font-size: 0.8rem; color: var(--gray-500); line-height: 1.5; flex: 1; }
+    .doc-dl {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--navy); color: var(--white);
+      padding: 8px 16px; border-radius: 6px; font-size: 0.78rem; font-weight: 600;
+      text-decoration: none; transition: background 0.2s;
+    }
+    .doc-dl:hover { background: var(--gold); color: var(--navy); }
+    .logout-btn {
+      background: none; border: 1px solid var(--gray-300); color: var(--gray-500);
+      padding: 6px 16px; border-radius: 6px; font-size: 0.8rem; cursor: pointer;
+      margin-bottom: 24px; transition: all 0.2s;
+    }
+    .logout-btn:hover { border-color: var(--navy); color: var(--navy); }
+    .error-msg { color: #dc2626; font-size: 0.82rem; margin-top: 8px; display: none; }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy); color: #a8b4cc;
+      text-align: center; padding: 28px 32px; font-size: 0.82rem;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer span { color: var(--gold); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 0 16px; }
+      .nav-links a { padding: 6px 10px; font-size: 0.78rem; }
+      .home-inner { flex-direction: column; gap: 32px; text-align: center; padding: 40px 0; }
+      .home-meta { justify-content: center; }
+      .cv-grid { grid-template-columns: 1fr; }
+      .cv-full { grid-column: 1; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .skills-layout { grid-template-columns: 1fr; }
+      .docs-grid { grid-template-columns: 1fr; }
+      .personal-info-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
 </head>
 <body>
-    <h1>Home</h1>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">LF</div>
+  <div class="nav-links">
+    <a href="#home" class="active" onclick="setActive(this)">Home</a>
+    <a href="#about" onclick="setActive(this)">About me</a>
+    <a href="#projects" onclick="setActive(this)">Projects</a>
+    <a href="#skills" onclick="setActive(this)">ICT Skills</a>
+    <a href="#documents" onclick="setActive(this)">Documents</a>
+  </div>
+</nav>
+
+<!-- HOME -->
+<section id="home">
+  <div class="container">
+    <div class="home-inner">
+      <div class="home-photo">
+        <div class="photo-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <span>Foto<br/>einfügen</span>
+        </div>
+      </div>
+      <div class="home-text">
+        <div class="home-eyebrow">Online-Bewerbungsprofil</div>
+        <h1 class="home-name">Lien Fenk</h1>
+        <div class="home-divider"></div>
+        <p class="home-tagline">
+          Ich bin Schülerin der IMS Basel und begeistere mich für Informatik, kreatives Arbeiten und digitale Medien. Mit Sorgfalt, Lernbereitschaft und Eigeninitiative bringe ich mich in jedes Projekt ein – schulisch wie privat.
+        </p>
+        <div class="home-meta">
+          <div class="home-meta-item">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            Basel, Schweiz
+          </div>
+          <div class="home-meta-item">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/></svg>
+            IMS Basel
+          </div>
+          <div class="home-meta-item">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            lien.fenk@gmail.com
+          </div>
+        </div>
+        <div style="margin-top:32px;">
+          <a href="#about" class="btn btn-gold">Mehr erfahren</a>
+          <a href="#documents" class="btn btn-outline">Unterlagen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT ME / CV -->
+<section id="about">
+  <div class="container">
+    <div class="section-line"></div>
+    <h2 class="section-title">About me</h2>
+    <p class="section-subtitle">Lebenslauf &amp; persönliche Angaben</p>
+
+    <div class="personal-info-grid">
+      <div class="info-chip">
+        <div class="info-chip-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <div>
+          <div class="info-chip-label">Geburtsdatum</div>
+          <div class="info-chip-value">[Datum einfügen]</div>
+        </div>
+      </div>
+      <div class="info-chip">
+        <div class="info-chip-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+        <div>
+          <div class="info-chip-label">Wohnort</div>
+          <div class="info-chip-value">Basel, Schweiz</div>
+        </div>
+      </div>
+      <div class="info-chip">
+        <div class="info-chip-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div>
+          <div class="info-chip-label">E-Mail</div>
+          <div class="info-chip-value">lien.fenk@gmail.com</div>
+        </div>
+      </div>
+      <div class="info-chip">
+        <div class="info-chip-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/></svg></div>
+        <div>
+          <div class="info-chip-label">Schule</div>
+          <div class="info-chip-value">IMS Basel</div>
+        </div>
+      </div>
+      <div class="info-chip">
+        <div class="info-chip-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.81 19.79 19.79 0 01.01 2.17 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg></div>
+        <div>
+          <div class="info-chip-label">Telefon</div>
+          <div class="info-chip-value">[Nummer einfügen]</div>
+        </div>
+      </div>
+      <div class="info-chip">
+        <div class="info-chip-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div>
+          <div class="info-chip-label">Nationalität</div>
+          <div class="info-chip-value">[Nationalität einfügen]</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:40px;">
+      <div class="cv-grid">
+        <div class="cv-card">
+          <div class="cv-card-title">Ausbildung</div>
+          <div class="cv-entry">
+            <div class="cv-year">2024 – heute</div>
+            <div class="cv-role">Informatikmittelschule</div>
+            <div class="cv-org">IMS Basel</div>
+            <div class="cv-desc">Berufsmaturität mit Schwerpunkt Informatik. Erlangung breiter IT-Kompetenzen in Programmierung, Datenbanken und Systemtechnik.</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-year">2021 – 2024</div>
+            <div class="cv-role">Sekundarschule</div>
+            <div class="cv-org">Sekundarschule Allschwil, Basel-Landschaft</div>
+            <div class="cv-desc">Abschluss mit Niveau E.</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-year">2020 – 2021</div>
+            <div class="cv-role">Primarschule</div>
+            <div class="cv-org">Primarschule Allschwil, Basel-Landschaft</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-year">2013 – 2020</div>
+            <div class="cv-role">Primarschule</div>
+            <div class="cv-org">Primarschule Rüttenen, Solothurn</div>
+          </div>
+        </div>
+
+        <div class="cv-card">
+          <div class="cv-card-title">Berufserfahrung / Schnupperlehre</div>
+          <div class="cv-entry">
+            <div class="cv-year">2024</div>
+            <div class="cv-role">Schnupperlehre Informatiker Applikationsentwicklung</div>
+            <div class="cv-org">SRF Schweizer Radio und Fernsehen (Studio Basel)</div>
+            <div class="cv-desc">Mir wurde gezeigt wie man mit Scrum zusammenarbeitet und habe ein Einblick in die Arbeitsweise eines Informatikers erhalten. </div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-year">2024</div>
+            <div class="cv-role">Schnupperlehre Informatiker Plattformentwicklung</div>
+            <div class="cv-org">Karger AG</div>
+            <div class="cv-desc">Mir wurden die Unterschiede zwischen den beiden Bereichen Applikations- und Plattformentwicklungu gezeigt.</div>
+          </div>
+        </div>
+
+        <div class="cv-card">
+          <div class="cv-card-title">Sprachen</div>
+          <div class="cv-entry">
+            <div class="cv-role">Deutsch</div>
+            <div class="cv-desc">Muttersprache</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-role">Englisch</div>
+            <div class="cv-desc">[Niveau, z.B. B2 / FCE] – Zertifikat vorhanden</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-role">Französisch</div>
+            <div class="cv-desc">[Niveau einfügen]</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-role">[Weitere Sprache]</div>
+            <div class="cv-desc">[Niveau einfügen]</div>
+          </div>
+        </div>
+
+        <div class="cv-card">
+          <div class="cv-card-title">Interessen &amp; Hobbys</div>
+          <div class="cv-entry">
+            <div class="cv-role">[Interesse 1 einfügen]</div>
+            <div class="cv-desc">[Kurze Beschreibung einfügen]</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-role">[Interesse 2 einfügen]</div>
+            <div class="cv-desc">[Kurze Beschreibung einfügen]</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-role">[Interesse 3 einfügen]</div>
+            <div class="cv-desc">[Kurze Beschreibung einfügen]</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-line"></div>
+    <h2 class="section-title">Projects</h2>
+    <p class="section-subtitle">Schulische und private Arbeitsbeispiele</p>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-tag-bar school"></div>
+        <div class="project-body">
+          <span class="project-badge badge-school">Schulprojekt</span>
+          <div class="project-name">ePortfolio Informatik</div>
+          <div class="project-desc">Digitales Portfolio aus dem Informatikunterricht der IMS Basel mit allen Arbeiten, Projekten und Reflexionen.</div>
+          <a href="#" class="project-link">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Link einfügen
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-tag-bar school"></div>
+        <div class="project-body">
+          <span class="project-badge badge-school">Schulprojekt</span>
+          <div class="project-name">Online-Bewerbungsprofil</div>
+          <div class="project-desc">Diese Webseite – erstellt im Rahmen des IDAF-Projekts an der IMS Basel als digitales Bewerbungsprofil.</div>
+          <a href="#home" class="project-link">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Diese Seite
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-tag-bar school"></div>
+        <div class="project-body">
+          <span class="project-badge badge-school">Schulprojekt</span>
+          <div class="project-name">[Schulprojekt 3]</div>
+          <div class="project-desc">[Beschreibung des Projekts einfügen – z.B. Webapplikation, Datenbankprojekt, Programmierprojekt etc.]</div>
+          <a href="#" class="project-link">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Link einfügen
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-tag-bar private"></div>
+        <div class="project-body">
+          <span class="project-badge badge-private">Privates Projekt</span>
+          <div class="project-name">[Privates Projekt 1]</div>
+          <div class="project-desc">[Beschreibung des privaten Projekts einfügen – z.B. App, Website, Kreativprojekt, Design etc.]</div>
+          <a href="#" class="project-link">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Link einfügen
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-tag-bar private"></div>
+        <div class="project-body">
+          <span class="project-badge badge-private">Privates Projekt</span>
+          <div class="project-name">[Privates Projekt 2]</div>
+          <div class="project-desc">[Beschreibung des privaten Projekts einfügen.]</div>
+          <a href="#" class="project-link">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Link einfügen
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-tag-bar private"></div>
+        <div class="project-body">
+          <span class="project-badge badge-private">Privates Projekt</span>
+          <div class="project-name">[Privates Projekt 3]</div>
+          <div class="project-desc">[Beschreibung des privaten Projekts einfügen.]</div>
+          <a href="#" class="project-link">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Link einfügen
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ICT SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-line"></div>
+    <h2 class="section-title">ICT Skills</h2>
+    <p class="section-subtitle">Informatikkompetenzüberblick</p>
+    <div class="skills-layout">
+
+      <div class="skills-card">
+        <div class="skills-card-title">Programmierung &amp; Webentwicklung</div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-name">HTML / CSS</span><span class="skill-pct">80%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-name">JavaScript</span><span class="skill-pct">60%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:60%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-name">Python</span><span class="skill-pct">65%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:65%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-name">SQL / Datenbanken</span><span class="skill-pct">55%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:55%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-name">Java / OOP</span><span class="skill-pct">50%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:50%"></div></div>
+        </div>
+      </div>
+
+      <div class="skills-card">
+        <div class="skills-card-title">Office &amp; Produktivität</div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-name">Microsoft Word</span><span class="skill-pct">90%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-name">Microsoft Excel</span><span class="skill-pct">80%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-name">PowerPoint / Präsentation</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-name">Google Workspace</span><span class="skill-pct">80%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
+        </div>
+      </div>
+
+      <div class="skills-card">
+        <div class="skills-card-title">Systeme &amp; Tools</div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-name">Windows</span><span class="skill-pct">90%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-name">macOS</span><span class="skill-pct">75%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:75%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-name">Git / Versionskontrolle</span><span class="skill-pct">60%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:60%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-name">VS Code / IDEs</span><span class="skill-pct">70%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:70%"></div></div>
+        </div>
+      </div>
+
+      <div class="skills-card">
+        <div class="skills-card-title">Weitere digitale Kompetenzen</div>
+        <div style="margin-bottom:16px;">
+          <div class="skills-card-title" style="margin-bottom:10px; font-size:0.72rem;">Medien &amp; Design</div>
+          <div class="skill-tags">
+            <span class="skill-tag known">Canva</span>
+            <span class="skill-tag known">Adobe Photoshop</span>
+            <span class="skill-tag">Figma</span>
+            <span class="skill-tag">[Tool einfügen]</span>
+          </div>
+        </div>
+        <div style="margin-bottom:16px;">
+          <div class="skills-card-title" style="margin-bottom:10px; font-size:0.72rem;">Netzwerk &amp; Sicherheit</div>
+          <div class="skill-tags">
+            <span class="skill-tag known">Netzwerkgrundlagen</span>
+            <span class="skill-tag known">IT-Sicherheitsgrundlagen</span>
+            <span class="skill-tag">[Weiteres]</span>
+          </div>
+        </div>
+        <div>
+          <div class="skills-card-title" style="margin-bottom:10px; font-size:0.72rem;">Softskills (digital)</div>
+          <div class="skill-tags">
+            <span class="skill-tag known">Selbstständiges Arbeiten</span>
+            <span class="skill-tag known">Problemlösung</span>
+            <span class="skill-tag known">Teamarbeit</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DOCUMENTS (Login-geschützt) -->
+<section id="documents">
+  <div class="container">
+    <div class="section-line"></div>
+    <h2 class="section-title">Documents</h2>
+    <p class="section-subtitle">Privater Bereich – nur mit Login zugänglich</p>
+
+    <div id="loginArea" class="login-overlay">
+      <div class="login-icon">
+        <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <rect x="3" y="11" width="18" height="11" rx="2"/>
+          <path d="M7 11V7a5 5 0 0110 0v4"/>
+        </svg>
+      </div>
+      <div class="login-title">Geschützter Bereich</div>
+      <div class="login-sub">Bitte melden Sie sich an, um die Bewerbungsunterlagen herunterzuladen.</div>
+      <div class="form-group">
+        <label for="loginUser">Benutzername</label>
+        <input type="text" id="loginUser" placeholder="Benutzername eingeben" autocomplete="username"/>
+      </div>
+      <div class="form-group">
+        <label for="loginPass">Passwort</label>
+        <input type="password" id="loginPass" placeholder="Passwort eingeben" autocomplete="current-password" onkeydown="if(event.key==='Enter') doLogin()"/>
+      </div>
+      <button class="btn btn-gold btn-full" onclick="doLogin()">Anmelden</button>
+      <div class="error-msg" id="loginError">Falscher Benutzername oder Passwort.</div>
+      <div class="login-hint">Zugang nur für autorisierte Personen.<br/>Benutzername: <strong>recruiter</strong> · Passwort: <strong>LienFenk2025</strong></div>
+    </div>
+
+    <div id="docsArea" class="docs-area">
+      <button class="logout-btn" onclick="doLogout()">⟵ Abmelden</button>
+      <div class="docs-grid">
+
+        <div class="doc-card">
+          <div class="doc-icon"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+          <div class="doc-name">Bewerbungsschreiben</div>
+          <div class="doc-desc">Motivationsschreiben für die Bewerbung – individuell und überzeugend verfasst.</div>
+          <a href="#" class="doc-dl" onclick="alert('PDF-Datei hier verlinken: Bewerbungsschreiben.pdf'); return false;">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF
+          </a>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-icon"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+          <div class="doc-name">Lebenslauf</div>
+          <div class="doc-desc">Vollständiger tabellarischer Lebenslauf im PDF-Format.</div>
+          <a href="#" class="doc-dl" onclick="alert('PDF-Datei hier verlinken: Lebenslauf.pdf'); return false;">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF
+          </a>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-icon"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <div class="doc-name">Schulzeugnisse</div>
+          <div class="doc-desc">Aktuelle Zeugnisse der IMS Basel.</div>
+          <a href="#" class="doc-dl" onclick="alert('PDF-Datei hier verlinken: Zeugnisse.pdf'); return false;">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF
+          </a>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-icon"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <div class="doc-name">Modulnotenüberblick</div>
+          <div class="doc-desc">Übersicht aller Modulnoten aus der Ausbildung an der IMS Basel.</div>
+          <a href="#" class="doc-dl" onclick="alert('PDF-Datei hier verlinken: Modulnoten.pdf'); return false;">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF
+          </a>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-icon"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <div class="doc-name">Sprachzertifikate</div>
+          <div class="doc-desc">Nachweise über Sprachkenntnisse (z.B. FCE, DELF o.Ä.).</div>
+          <a href="#" class="doc-dl" onclick="alert('PDF-Datei hier verlinken: Sprachzertifikate.pdf'); return false;">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF
+          </a>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-icon"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <div class="doc-name">Weitere Unterlagen</div>
+          <div class="doc-desc">[Weitere Dokumente: z.B. Empfehlungsschreiben, Praktikumszeugnis etc.]</div>
+          <a href="#" class="doc-dl" onclick="alert('PDF-Datei hier verlinken: Weitere.pdf'); return false;">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <strong>Lien Fenk</strong> · IMS Basel · <a href="mailto:lien.fenk@gmail.com">lien.fenk@gmail.com</a></p>
+  <p style="margin-top:6px; font-size:0.76rem; color:#6b7a99;">Online-Bewerbungsprofil · IDAF IV</p>
+</footer>
+
+<script>
+  // Active nav on scroll
+  function setActive(el) {
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    el.classList.add('active');
+  }
+  window.addEventListener('scroll', () => {
+    const sections = ['home','about','projects','skills','documents'];
+    let current = 'home';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 80) current = id;
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+
+  // Login
+  function doLogin() {
+    const user = document.getElementById('loginUser').value.trim();
+    const pass = document.getElementById('loginPass').value;
+    const err = document.getElementById('loginError');
+    if (user === 'recruiter' && pass === 'LienFenk2025') {
+      document.getElementById('loginArea').style.display = 'none';
+      document.getElementById('docsArea').classList.add('visible');
+      err.style.display = 'none';
+    } else {
+      err.style.display = 'block';
+    }
+  }
+  function doLogout() {
+    document.getElementById('loginArea').style.display = 'block';
+    document.getElementById('docsArea').classList.remove('visible');
+    document.getElementById('loginUser').value = '';
+    document.getElementById('loginPass').value = '';
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
 </body>
 </html>
