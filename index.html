@@ -229,13 +229,16 @@
     .doc-icon { color: var(--gold); }
     .doc-name { font-weight: 700; font-size: 0.9rem; color: var(--navy); }
     .doc-desc { font-size: 0.8rem; color: var(--gray-500); line-height: 1.5; flex: 1; }
-    .doc-dl {
+    .doc-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .doc-action {
       display: inline-flex; align-items: center; gap: 6px;
       background: var(--navy); color: var(--white);
       padding: 8px 16px; border-radius: 6px; font-size: 0.78rem; font-weight: 600;
-      text-decoration: none; transition: background 0.2s;
+      text-decoration: none; transition: background 0.2s, color 0.2s;
     }
-    .doc-dl:hover { background: var(--gold); color: var(--navy); }
+    .doc-action:hover { background: var(--gold); color: var(--navy); }
+    .doc-action.doc-download { background: var(--gold); color: var(--navy); }
+    .doc-action.doc-download:hover { background: #e8c96a; }
     .logout-btn {
       background: none; border: 1px solid var(--gray-300); color: var(--gray-500);
       padding: 6px 16px; border-radius: 6px; font-size: 0.8rem; cursor: pointer;
@@ -416,7 +419,7 @@
             <div class="cv-year">2023</div>
             <div class="cv-role">Schnupperlehre Informatiker Applikationsentwicklung</div>
             <div class="cv-org">Delica</div>
-            <div class="cv-desc">Mir wurden die Unterschiede zwischen den beiden Bereichen Applikations- und Plattformentwicklungu gezeigt. Ich habe ein Einblick in die Infrastrukur erhalten.</div>
+            <div class="cv-desc">mir wurde die ganze Infrastruktur gezeigt und konnte selbsständig ein Pc auseinanderbauen und wieder zusammenbauen. Ich konnte am Helpdesk arebiten und Mitarbeiter bei Problemen erfolgreich helfen und sie lösen. </div>
           </div>
         </div>
 
@@ -441,11 +444,11 @@
           <div class="cv-card-title">Interessen &amp; Hobbys</div>
           <div class="cv-entry">
             <div class="cv-role">Badminton</div>
-            <div class="cv-desc">Ich spiele seit 5 Jahren im Allschwiler Badmintonclub Smaesch</div>
+            <div class="cv-desc">Ich spiele seit 5 Jahren im Allschwiler Badmintonclub Smaesch.</div>
           </div>
           <div class="cv-entry">
             <div class="cv-role">Programmieren</div>
-            <div class="cv-desc">Ausserhalb der Schule war ich auch für 2 Jahre im ICT Campus Muttenz/Allschwil und habe dört schon mich mit Programmiersprachen beschäftigt wie Python und habe kleinere Projekte durchgeführt.</div>
+            <div class="cv-desc">Ausserhalb der Schule war ich auch für 2 Jahre im ICT Campus Muttenz/Allschwil. Ich konnte  und habe dört schon mich mit Programmiersprachen beschäftigt wie Python und habe kleinere Projekte durchgeführt.</div>
           </div>
         </div>
       </div>
@@ -558,16 +561,16 @@
           <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-label-row"><span class="skill-name">JavaScript</span><span class="skill-pct">60%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:60%"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-label-row"><span class="skill-name">Python</span><span class="skill-pct">65%</span></div>
+          <div class="skill-label-row"><span class="skill-name">JavaScript</span><span class="skill-pct">65%</span></div>
           <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:65%"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-label-row"><span class="skill-name">SQL / Datenbanken</span><span class="skill-pct">55%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:55%"></div></div>
+          <div class="skill-label-row"><span class="skill-name">Python</span><span class="skill-pct">75%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:75%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-name">SQL / Datenbanken</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div>
         </div>
         <div class="skill-row">
           <div class="skill-label-row"><span class="skill-name">Java / OOP</span><span class="skill-pct">50%</span></div>
@@ -582,16 +585,16 @@
           <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-label-row"><span class="skill-name">Microsoft Excel</span><span class="skill-pct">80%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
+          <div class="skill-label-row"><span class="skill-name">Microsoft Excel</span><span class="skill-pct">40%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:40%"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-label-row"><span class="skill-name">PowerPoint / Präsentation</span><span class="skill-pct">85%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div>
+          <div class="skill-label-row"><span class="skill-name">PowerPoint / Präsentation</span><span class="skill-pct">100%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:100%"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-label-row"><span class="skill-name">Google Workspace</span><span class="skill-pct">80%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
+          <div class="skill-label-row"><span class="skill-name">Google Workspace</span><span class="skill-pct">50%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:50%"></div></div>
         </div>
       </div>
 
@@ -606,11 +609,7 @@
           <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:75%"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-label-row"><span class="skill-name">Git / Versionskontrolle</span><span class="skill-pct">60%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:60%"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-label-row"><span class="skill-name">VS Code / IDEs</span><span class="skill-pct">70%</span></div>
+          <div class="skill-label-row"><span class="skill-name">VS Code</span><span class="skill-pct">70%</span></div>
           <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:70%"></div></div>
         </div>
       </div>
@@ -620,10 +619,8 @@
         <div style="margin-bottom:16px;">
           <div class="skills-card-title" style="margin-bottom:10px; font-size:0.72rem;">Medien &amp; Design</div>
           <div class="skill-tags">
-            <span class="skill-tag known">Canva</span>
-            <span class="skill-tag known">Adobe Photoshop</span>
-            <span class="skill-tag">Figma</span>
-            <span class="skill-tag">[Tool einfügen]</span>
+            <span class="skill-tag known">Figma</span>
+            <span class="skill-tag known">Photoshop</span>
           </div>
         </div>
         <div style="margin-bottom:16px;">
@@ -631,11 +628,10 @@
           <div class="skill-tags">
             <span class="skill-tag known">Netzwerkgrundlagen</span>
             <span class="skill-tag known">IT-Sicherheitsgrundlagen</span>
-            <span class="skill-tag">[Weiteres]</span>
           </div>
         </div>
         <div>
-          <div class="skills-card-title" style="margin-bottom:10px; font-size:0.72rem;">Softskills (digital)</div>
+          <div class="skills-card-title" style="margin-bottom:10px; font-size:0.72rem;">Softskills</div>
           <div class="skill-tags">
             <span class="skill-tag known">Selbstständiges Arbeiten</span>
             <span class="skill-tag known">Problemlösung</span>
@@ -683,62 +679,41 @@
 
         <div class="doc-card">
           <div class="doc-icon"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-          <div class="doc-name">Bewerbungsschreiben</div>
-          <div class="doc-desc">Motivationsschreiben für die Bewerbung – individuell und überzeugend verfasst.</div>
-          <a href="#" class="doc-dl" onclick="alert('PDF-Datei hier verlinken: Bewerbungsschreiben.pdf'); return false;">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download PDF
-          </a>
-        </div>
-
-        <div class="doc-card">
-          <div class="doc-icon"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
           <div class="doc-name">Lebenslauf</div>
           <div class="doc-desc">Vollständiger tabellarischer Lebenslauf im PDF-Format.</div>
-          <a href="#" class="doc-dl" onclick="alert('PDF-Datei hier verlinken: Lebenslauf.pdf'); return false;">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download PDF
-          </a>
+          <div class="doc-actions">
+            <a href="Lebenslauf Lien Fenk.pdf" class="doc-action doc-open" target="_blank" rel="noopener noreferrer">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Datei öffnen
+            </a>
+            
+          </div>
         </div>
 
         <div class="doc-card">
           <div class="doc-icon"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
           <div class="doc-name">Schulzeugnisse</div>
           <div class="doc-desc">Aktuelle Zeugnisse der IMS Basel.</div>
-          <a href="#" class="doc-dl" onclick="alert('PDF-Datei hier verlinken: Zeugnisse.pdf'); return false;">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download PDF
-          </a>
+          <div class="doc-actions">
+            <a href="Zeugniss_1Semester_2026_Lien_fenk.pdf" class="doc-action doc-open" target="_blank" rel="noopener noreferrer">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Datei öffnen
+            </a>
+            
+          </div>
         </div>
 
         <div class="doc-card">
           <div class="doc-icon"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
           <div class="doc-name">Modulnotenüberblick</div>
           <div class="doc-desc">Übersicht aller Modulnoten aus der Ausbildung an der IMS Basel.</div>
-          <a href="#" class="doc-dl" onclick="alert('PDF-Datei hier verlinken: Modulnoten.pdf'); return false;">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download PDF
-          </a>
-        </div>
-
-        <div class="doc-card">
-          <div class="doc-icon"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-          <div class="doc-name">Sprachzertifikate</div>
-          <div class="doc-desc">Nachweise über Sprachkenntnisse (z.B. FCE, DELF o.Ä.).</div>
-          <a href="#" class="doc-dl" onclick="alert('PDF-Datei hier verlinken: Sprachzertifikate.pdf'); return false;">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download PDF
-          </a>
-        </div>
-
-        <div class="doc-card">
-          <div class="doc-icon"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-          <div class="doc-name">Weitere Unterlagen</div>
-          <div class="doc-desc">[Weitere Dokumente: z.B. Empfehlungsschreiben, Praktikumszeugnis etc.]</div>
-          <a href="#" class="doc-dl" onclick="alert('PDF-Datei hier verlinken: Weitere.pdf'); return false;">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download PDF
-          </a>
+          <div class="doc-actions">
+            <a href="Modulnotenübersicht_Lien_Fenk.pdf" class="doc-action doc-open" target="_blank" rel="noopener noreferrer">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Datei öffnen
+            </a>
+            
+          </div>
         </div>
 
       </div>
@@ -748,8 +723,8 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2025 <strong>Lien Fenk</strong> · IMS Basel · <a href="mailto:lien.fenk@gmail.com">lien.fenk@gmail.com</a></p>
-  <p style="margin-top:6px; font-size:0.76rem; color:#6b7a99;">Online-Bewerbungsprofil · IDAF IV</p>
+  <p> 2026 <strong>Lien Fenk</strong> · IMS Basel · <a href="mailto:lien.fenk@gmail.com">lien.fenk@gmail.com</a></p>
+  <p style="margin-top:6px; font-size:0.76rem; color:#6b7a99;">Online-Bewerbungsprofil</p>
 </footer>
 
 <script>
