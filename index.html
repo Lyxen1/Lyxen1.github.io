@@ -20,6 +20,7 @@
       --shadow: 0 4px 24px rgba(26,37,64,0.10);
       --radius: 10px;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text); }
 
@@ -31,10 +32,12 @@
       padding: 0 48px; height: 64px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.18);
     }
+
     .nav-logo {
       font-family: 'Playfair Display', serif;
       color: var(--gold); font-size: 1.25rem; font-weight: 700; letter-spacing: 0.04em;
     }
+
     .nav-links { display: flex; gap: 8px; }
     .nav-links a {
       color: var(--gray-300); text-decoration: none;
@@ -42,6 +45,7 @@
       padding: 8px 16px; border-radius: 6px;
       transition: color 0.2s, background 0.2s;
     }
+
     .nav-links a:hover, .nav-links a.active {
       color: var(--gold); background: rgba(201,168,76,0.10);
     }
@@ -55,10 +59,12 @@
       background: var(--navy);
       display: flex; align-items: center;
     }
+
     .home-inner {
       display: flex; align-items: center; gap: 64px;
       padding: 60px 0;
     }
+
     .home-photo {
       flex-shrink: 0;
       width: 220px; height: 220px; border-radius: 50%;
@@ -67,37 +73,45 @@
       display: flex; align-items: center; justify-content: center;
       overflow: hidden;
     }
+
     .home-photo img { width: 100%; height: 100%; object-fit: cover; }
     .photo-placeholder {
       display: flex; flex-direction: column; align-items: center; gap: 8px;
       color: var(--gold-light); font-size: 0.8rem; text-align: center; padding: 16px;
     }
+
     .photo-placeholder svg { width: 56px; height: 56px; opacity: 0.6; }
     .home-text { color: var(--white); }
     .home-eyebrow {
       font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase;
       color: var(--gold); font-weight: 600; margin-bottom: 12px;
     }
+
     .home-name {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 700;
       line-height: 1.1; margin-bottom: 16px;
     }
+
     .home-tagline {
       font-size: 1rem; color: #a8b4cc; line-height: 1.7;
       max-width: 480px; margin-bottom: 28px;
     }
+
     .home-divider {
       width: 48px; height: 3px; background: var(--gold); border-radius: 2px; margin-bottom: 28px;
     }
+
     .home-meta { display: flex; gap: 24px; flex-wrap: wrap; }
     .home-meta-item { display: flex; align-items: center; gap: 8px; color: #a8b4cc; font-size: 0.875rem; }
     .home-meta-item svg { color: var(--gold); flex-shrink: 0; }
+
     .btn {
       display: inline-block; padding: 12px 28px; border-radius: 6px;
       font-size: 0.875rem; font-weight: 600; letter-spacing: 0.04em; text-decoration: none;
       cursor: pointer; border: none; transition: all 0.2s;
     }
+
     .btn-gold { background: var(--gold); color: var(--navy); }
     .btn-gold:hover { background: var(--gold-light); }
     .btn-outline { background: transparent; color: var(--gold); border: 2px solid var(--gold); margin-left: 12px; }
@@ -109,6 +123,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 2rem; font-weight: 700; color: var(--navy); margin-bottom: 8px;
     }
+
     .section-subtitle { color: var(--gray-500); font-size: 0.95rem; margin-bottom: 40px; }
     .section-line { width: 48px; height: 3px; background: var(--gold); border-radius: 2px; margin-bottom: 12px; }
 
@@ -117,12 +132,14 @@
       background: var(--white); border-radius: var(--radius);
       padding: 28px 28px 24px; box-shadow: var(--shadow);
     }
+
     .cv-card-title {
       font-family: 'Playfair Display', serif;
       font-size: 1rem; font-weight: 700; color: var(--navy);
       border-bottom: 2px solid var(--gold); padding-bottom: 10px; margin-bottom: 20px;
       text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8rem;
     }
+
     .cv-entry { margin-bottom: 20px; }
     .cv-entry:last-child { margin-bottom: 0; }
     .cv-year { font-size: 0.75rem; color: var(--gold); font-weight: 600; letter-spacing: 0.06em; margin-bottom: 2px; }
@@ -134,10 +151,12 @@
     .personal-info-grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px;
     }
+
     .info-chip {
       background: var(--white); border-radius: var(--radius); padding: 16px 20px;
       box-shadow: var(--shadow); display: flex; align-items: center; gap: 12px;
     }
+
     .info-chip-icon { color: var(--gold); flex-shrink: 0; }
     .info-chip-label { font-size: 0.72rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.08em; }
     .info-chip-value { font-size: 0.9rem; font-weight: 600; color: var(--navy); }
@@ -145,44 +164,54 @@
     /* ── PROJECTS ── */
     #projects { background: var(--gray-100); }
     .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
     .project-card {
       background: var(--white); border-radius: var(--radius);
       box-shadow: var(--shadow); overflow: hidden;
       transition: transform 0.2s, box-shadow 0.2s;
     }
+
     .project-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(26,37,64,0.14); }
     .project-tag-bar {
       height: 6px; background: var(--navy);
     }
+
     .project-tag-bar.school { background: var(--gold); }
     .project-tag-bar.private { background: var(--navy); }
     .project-body { padding: 20px 20px 16px; }
+
     .project-badge {
       display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em;
       text-transform: uppercase; padding: 3px 10px; border-radius: 20px; margin-bottom: 10px;
     }
+
     .badge-school { background: #fef3c7; color: #92400e; }
     .badge-private { background: #dbeafe; color: #1e40af; }
     .project-name { font-weight: 700; font-size: 0.95rem; color: var(--navy); margin-bottom: 6px; }
     .project-desc { font-size: 0.83rem; color: var(--gray-500); line-height: 1.55; margin-bottom: 14px; }
+
     .project-link {
       display: inline-flex; align-items: center; gap: 6px;
       font-size: 0.8rem; font-weight: 600; color: var(--gold); text-decoration: none;
       border-bottom: 1px solid transparent; transition: border-color 0.2s;
     }
+
     .project-link:hover { border-color: var(--gold); }
     .project-link-disabled { color: var(--gray-300); cursor: default; }
 
     /* ── ICT SKILLS ── */
     #skills { background: var(--cream); }
     .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+
     .skills-card {
       background: var(--white); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow);
     }
+
     .skills-card-title {
       font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--gold); margin-bottom: 20px;
     }
+
     .skill-row { margin-bottom: 16px; }
     .skill-label-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
     .skill-name { font-size: 0.875rem; font-weight: 500; color: var(--navy); }
@@ -190,11 +219,13 @@
     .skill-bar-bg { height: 7px; background: var(--gray-100); border-radius: 4px; }
     .skill-bar-fill { height: 100%; background: linear-gradient(90deg, var(--gold), #e8c96a); border-radius: 4px; transition: width 1s ease; }
     .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
     .skill-tag {
       background: var(--gray-100); color: var(--navy); border-radius: 20px;
       padding: 5px 14px; font-size: 0.8rem; font-weight: 500;
       border: 1px solid var(--gray-300);
     }
+
     .skill-tag.known { background: #fef3c7; border-color: var(--gold-light); color: #92400e; }
 
     /* ── DOCUMENTS ── */
@@ -204,46 +235,55 @@
       box-shadow: var(--shadow); max-width: 400px; margin: 0 auto; padding: 40px;
       text-align: center;
     }
+
     .login-icon { color: var(--gold); margin-bottom: 16px; }
     .login-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: 8px; }
     .login-sub { color: var(--gray-500); font-size: 0.88rem; margin-bottom: 28px; }
     .form-group { text-align: left; margin-bottom: 16px; }
     .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+
     .form-group input {
       width: 100%; padding: 10px 14px; border: 1.5px solid var(--gray-300); border-radius: 6px;
       font-size: 0.9rem; font-family: 'Inter', sans-serif; color: var(--navy);
       outline: none; transition: border-color 0.2s;
     }
+
     .form-group input:focus { border-color: var(--gold); }
     .btn-full { width: 100%; padding: 12px; margin-top: 8px; }
     .login-hint { font-size: 0.78rem; color: var(--gray-500); margin-top: 14px; }
     .docs-area { display: none; }
     .docs-area.visible { display: block; }
     .docs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
     .doc-card {
       background: var(--white); border-radius: var(--radius); padding: 22px 20px;
       box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 10px;
       align-items: flex-start; transition: transform 0.2s;
     }
+
     .doc-card:hover { transform: translateY(-3px); }
     .doc-icon { color: var(--gold); }
     .doc-name { font-weight: 700; font-size: 0.9rem; color: var(--navy); }
     .doc-desc { font-size: 0.8rem; color: var(--gray-500); line-height: 1.5; flex: 1; }
     .doc-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+
     .doc-action {
       display: inline-flex; align-items: center; gap: 6px;
       background: var(--navy); color: var(--white);
       padding: 8px 16px; border-radius: 6px; font-size: 0.78rem; font-weight: 600;
       text-decoration: none; transition: background 0.2s, color 0.2s;
     }
+
     .doc-action:hover { background: var(--gold); color: var(--navy); }
     .doc-action.doc-download { background: var(--gold); color: var(--navy); }
     .doc-action.doc-download:hover { background: #e8c96a; }
+
     .logout-btn {
       background: none; border: 1px solid var(--gray-300); color: var(--gray-500);
       padding: 6px 16px; border-radius: 6px; font-size: 0.8rem; cursor: pointer;
       margin-bottom: 24px; transition: all 0.2s;
     }
+
     .logout-btn:hover { border-color: var(--navy); color: var(--navy); }
     .error-msg { color: #dc2626; font-size: 0.82rem; margin-top: 8px; display: none; }
 
@@ -252,6 +292,7 @@
       background: var(--navy); color: #a8b4cc;
       text-align: center; padding: 28px 32px; font-size: 0.82rem;
     }
+
     footer a { color: var(--gold); text-decoration: none; }
     footer span { color: var(--gold); }
 
@@ -419,7 +460,7 @@
             <div class="cv-year">2023</div>
             <div class="cv-role">Schnupperlehre Informatiker Applikationsentwicklung</div>
             <div class="cv-org">Delica</div>
-            <div class="cv-desc">Mir wurde die gesamte IT-Infrastruktur umfassend vorgestellt, und ich hatte die Möglichkeit, selbstständig einen PC auseinander- und wieder zusammenzubauen.Zudem konnte ich am Helpdesk mitarbeiten, Mitarbeitende bei technischen Problemen unterstützen und eigenständig passende Lösungen erarbeiten. </div>
+            <div class="cv-desc">Mir wurde die gesamte IT-Infrastruktur umfassend vorgestellt, und ich hatte die Möglichkeit, selbstständig einen PC auseinander- und wieder zusammenzubauen. Zudem konnte ich am Helpdesk mitarbeiten, Mitarbeitende bei technischen Problemen unterstützen und eigenständig passende Lösungen erarbeiten. </div>
           </div>
         </div>
 
@@ -437,7 +478,6 @@
             <div class="cv-role">Französisch</div>
             <div class="cv-desc">10 Jahre Schulkenntnisse</div>
           </div>
-          
         </div>
 
         <div class="cv-card">
@@ -464,17 +504,12 @@
     <p class="section-subtitle">Schulische und private Arbeitsbeispiele</p>
     <div class="projects-grid">
 
-     
-
-  
-
-       <div class="project-card">
+      <div class="project-card">
         <div class="project-tag-bar school"></div>
         <div class="project-body">
           <span class="project-badge badge-school">Schulprojekt</span>
-          <div class="project-name">Roulette in Terinal / Phyton</div>
-          <div class="project-desc">Man konnte im Terminal Roulette spielen mit einem Startkapital und konte entweder auf eine Einzelne Zahl oder auf grade oder ungrade setzten. Es hat eine Random Zahl zwischen 0-36 generiert und hat demensprechend auch das "Geld" ausgezahlt bekommen.</div>
-         
+          <div class="project-name">Roulette in Terminal / Python</div>
+          <div class="project-desc">Man konnte im Terminal Roulette spielen mit einem Startkapital und konnte entweder auf eine einzelne Zahl oder auf gerade oder ungerade setzen. Es hat eine Random-Zahl zwischen 0–36 generiert und hat dementsprechend auch das "Geld" ausgezahlt bekommen.</div>
         </div>
       </div>
 
@@ -483,8 +518,7 @@
         <div class="project-body">
           <span class="project-badge badge-school">Schulprojekt</span>
           <div class="project-name">Bücher-Antiquariat / HTML + CSS + PHP</div>
-          <div class="project-desc">Ich habe eine Webseite erstellt, welche mit einer Datenbank verbunden ist. Man Konnte nach Bücher suchen und filtern. Es gab Admin und Besucher Login, als Admin konnte man nutzter und Bücher Verwalten.</div>
-         
+          <div class="project-desc">Ich habe eine Webseite erstellt, welche mit einer Datenbank verbunden ist. Man konnte nach Büchern suchen und filtern. Es gab Admin- und Besucher-Login, als Admin konnte man Nutzer und Bücher verwalten.</div>
         </div>
       </div>
 
@@ -493,8 +527,7 @@
         <div class="project-body">
           <span class="project-badge badge-school">Schulprojekt</span>
           <div class="project-name">Todoliste / HTML + CSS + JavaScript</div>
-          <div class="project-desc">Ich habe eine Singlepage Webseite erstellt, mit der man Tasks erstellen ändern oder Löschen kann. Man Kann die Tasks als Wichtig Markieren und in Prozent angeben wie weit man ist. Die Tasks kann man auch suchen oder Filtern zum genau die Richtige zu finden.</div>
-          
+          <div class="project-desc">Ich habe eine Single-Page-Webseite erstellt, mit der man Tasks erstellen, ändern oder löschen kann. Man kann die Tasks als wichtig markieren und in Prozent angeben, wie weit man ist. Die Tasks kann man auch suchen oder filtern, um genau die richtige zu finden.</div>
         </div>
       </div>
 
@@ -502,9 +535,8 @@
         <div class="project-tag-bar private"></div>
         <div class="project-body">
           <span class="project-badge badge-private">Privates Projekt</span>
-          <div class="project-name">Eine Webseite für ein Kleines Cafe in Allschwil / HTML + CSS</div>
-          <div class="project-desc">Ich habe mit einem Kollegen eine Website gestalltet mit Öffnungszeiten, Menü und Bewertungen von Googel.</div>
-         
+          <div class="project-name">Eine Webseite für ein kleines Cafe in Allschwil / HTML + CSS</div>
+          <div class="project-desc">Ich habe mit einem Kollegen eine Website gestaltet mit Öffnungszeiten, Menü und Bewertungen von Google.</div>
         </div>
       </div>
 
@@ -513,18 +545,16 @@
         <div class="project-body">
           <span class="project-badge badge-private">Privates Projekt</span>
           <div class="project-name">Schulnoten-Rechner / HTML + CSS + PHP</div>
-          <div class="project-desc">Eine leine Webseite in der man seine Noten mit der jeweiligen gewichtung angeben kann und es zeigt den Notenschnitt an und welche Note man noch braucht um auf ein Wunschschnitt zu kommen.</div>
-         
+          <div class="project-desc">Eine kleine Webseite, in der man seine Noten mit der jeweiligen Gewichtung angeben kann und es zeigt den Notenschnitt an und welche Note man noch braucht, um auf einen Wunschschnitt zu kommen.</div>
         </div>
       </div>
 
-<div class="project-card">
+      <div class="project-card">
         <div class="project-tag-bar private"></div>
         <div class="project-body">
           <span class="project-badge badge-private">Privates Projekt</span>
           <div class="project-name">Expense Tracker / HTML + CSS + JavaScript</div>
-          <div class="project-desc">Mit dieser Web-App können Nutzer ihre Einnahmen und Ausgaben erfassen und verwalten. Die Anwendung berechnet automatisch den aktuellen Kontostand und zeigt alle Einträge übersichtlich an</div>
-         
+          <div class="project-desc">Mit dieser Web-App können Nutzer ihre Einnahmen und Ausgaben erfassen und verwalten. Die Anwendung berechnet automatisch den aktuellen Kontostand und zeigt alle Einträge übersichtlich an.</div>
         </div>
       </div>
 
@@ -671,7 +701,6 @@
               <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               Datei öffnen
             </a>
-            
           </div>
         </div>
 
@@ -684,7 +713,6 @@
               <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               Datei öffnen
             </a>
-            
           </div>
         </div>
 
@@ -697,7 +725,6 @@
               <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               Datei öffnen
             </a>
-            
           </div>
         </div>
 
@@ -718,6 +745,7 @@
     document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
     el.classList.add('active');
   }
+
   window.addEventListener('scroll', () => {
     const sections = ['home','about','projects','skills','documents'];
     let current = 'home';
@@ -725,6 +753,7 @@
       const el = document.getElementById(id);
       if (el && window.scrollY >= el.offsetTop - 80) current = id;
     });
+
     document.querySelectorAll('.nav-links a').forEach(a => {
       a.classList.toggle('active', a.getAttribute('href') === '#' + current);
     });
@@ -744,6 +773,7 @@
       err.style.display = 'block';
     }
   }
+
   function doLogout() {
     document.getElementById('loginArea').style.display = 'block';
     document.getElementById('docsArea').classList.remove('visible');
@@ -751,12 +781,14 @@
     document.getElementById('loginPass').value = '';
     localStorage.removeItem('isLoggedIn');
   }
+
   function checkLoginStatus() {
     if (localStorage.getItem('isLoggedIn') === 'true') {
       document.getElementById('loginArea').style.display = 'none';
       document.getElementById('docsArea').classList.add('visible');
     }
   }
+
   window.addEventListener('load', checkLoginStatus);
 
   // Smooth scroll
